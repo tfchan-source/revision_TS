@@ -1,56 +1,38 @@
 {
   "community": [
-    {
-      "id": 1,
-      "question": "Name one facility for fun in a park.",
-      "answer": "The playground / swings."
-    },
-    {
-      "id": 2,
-      "question": "Where do people go to borrow books for free in a neighborhood?",
-      "answer": "The public library."
-    },
-    {
-      "id": 3,
-      "question": "Who can you call in the community if there is an emergency fire?",
-      "answer": "The fire department / firefighters."
-    },
-    {
-      "id": 4,
-      "question": "What community place can you visit to see historical artifacts or art?",
-      "answer": "A museum."
-    },
-    {
-      "id": 5,
-      "question": "Where can neighbors go to buy fresh fruits and vegetables?",
-      "answer": "The local supermarket or farmer's market."
-    }
+    { "id": 1, "question": "Name one facility for fun in a park.", "answer": "Swing / slide" },
+    { "id": 2, "question": "Name one educational facility in a park.", "answer": "Education centre / bird house / insect house" },
+    { "id": 3, "question": "What facility helps visually impaired people to know where they are?", "answer": "Portable braille map / tactile map" },
+    { "id": 4, "question": "Q4", "answer": "A4." },
+    { "id": 5, "question": "Q5", "answer": "A5." },
+    { "id": 6, "question": "Q6", "answer": "A6." },
+    { "id": 7, "question": "Q7", "answer": "A7." },
+    { "id": 8, "question": "Q8", "answer": "A8." },
+    { "id": 9, "question": "Q9", "answer": "A9." },
+    { "id": 10, "question": "Q10", "answer": "A10." },
+    { "id": 11, "question": "Q11", "answer": "A11." },
+    { "id": 12, "question": "Q12", "answer": "A12." },
+    { "id": 13, "question": "Q13", "answer": "A13." },
+    { "id": 14, "question": "Q14", "answer": "A14." },
+    { "id": 15, "question": "Q15", "answer": "A15." },
+    { "id": 16, "question": "Q16", "answer": "A16." }
   ],
   "science": [
-    {
-      "id": 1,
-      "question": "What gas do humans need to breathe in to survive?",
-      "answer": "Oxygen."
-    },
-    {
-      "id": 2,
-      "question": "Which planet is known as the Red Planet?",
-      "answer": "Mars."
-    },
-    {
-      "id": 3,
-      "question": "What is the boiling point of pure water in Celsius?",
-      "answer": "100 degrees Celsius."
-    },
-    {
-      "id": 4,
-      "question": "What force pulls objects down toward the center of the Earth?",
-      "answer": "Gravity."
-    },
-    {
-      "id": 5,
-      "question": "What do bees collect from flowers to make honey?",
-      "answer": "Nectar."
-    }
+    { "id": 1, "question": "Q1", "answer": "A1." },
+    { "id": 2, "question": "Q2", "answer": "A2." },
+    { "id": 3, "question": "Q3", "answer": "A3." },
+    { "id": 4, "question": "Q4", "answer": "A4." },
+    { "id": 5, "question": "Q5", "answer": "A5." },
+    { "id": 6, "question": "Q6", "answer": "A6." },
+    { "id": 7, "question": "Q7", "answer": "A7." },
+    { "id": 8, "question": "Q8", "answer": "A8." },
+    { "id": 9, "question": "Q9", "answer": "A9." },
+    { "id": 10, "question": "Q10", "answer": "A10." },
+    { "id": 11, "question": "Q11", "answer": "A11." },
+    { "id": 12, "question": "Q12", "answer": "A12." },
+    { "id": 13, "question": "Q13", "answer": "A13." },
+    { "id": 14, "question": "Q14", "answer": "A14." },
+    { "id": 15, "question": "Q15", "answer": "A15." },
+    { "id": 16, "question": "Q16", "answer": "A16." }
   ]
 }
