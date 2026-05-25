@@ -1,32 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flashcard Revision</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Revision Flashcards</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="app">
-    <header>
-      <h1>Revision Flashcards</h1>
 
-      <div class="row" style="justify-content: center;">
-        <button id="scienceBtn" class="bigChoice" type="button">Science</button>
-        <button id="communityBtn" class="bigChoice" type="button">Community</button>
+  <div class="container">
+    <!-- Topic Selection Screen -->
+    <div id="topic-screen" class="screen active">
+      <h1>Interactive Revision Flashcards</h1>
+      <p class="subtitle">Select a topic below to start your revision session!</p>
+      <div class="topic-buttons">
+        <button class="topic-btn" onclick="selectTopic('community')">
+          <span class="icon">🏘️</span>
+          <span class="btn-text">Community</span>
+        </button>
+        <button class="topic-btn" onclick="selectTopic('science')">
+          <span class="icon">🔬</span>
+          <span class="btn-text">Science</span>
+        </button>
       </div>
+    </div>
 
-      <p class="hint" id="statusText">Choose a topic to begin.</p>
-
-      <div class="row" style="margin-top:12px;">
-        <button id="resetBtn" class="ghost" type="button" style="display:none;">Reset</button>
+    <!-- Flashcards Grid Screen -->
+    <div id="cards-screen" class="screen">
+      <div class="header-bar">
+        <button id="back-btn" onclick="goBack()">&larr; Change Topic</button>
+        <h2 id="current-topic-title">Topic</h2>
+        <div id="progress-counter">Cards Flipped: <span id="flipped-count">0</span>/25</div>
       </div>
-    </header>
-
-    <main id="mainArea" class="main-area" hidden>
-      <div class="grid" id="cardGrid" aria-label="Flashcard grid"></div>
-    </main>
+      
+      <!-- 5x5 Grid Wrapper -->
+      <div class="grid-container" id="flashcards-grid"></div>
+    </div>
   </div>
 
   <script src="app.js"></script>
