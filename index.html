@@ -12,22 +12,16 @@
     <header>
       <h1>Revision Flashcards</h1>
 
-      <div class="row">
-        <label class="label">
-          Topic:
-          <select id="topicSelect">
-            <option value="" selected disabled>Choose a topic</option>
-            <option value="science-community">Science / Community</option>
-            <option value="history">History</option>
-            <option value="geography">Geography</option>
-          </select>
-        </label>
-
-        <button id="startBtn">Start (5×5)</button>
-        <button id="resetBtn" class="ghost" type="button" style="display:none;">Reset</button>
+      <div class="row" style="justify-content: center;">
+        <button id="scienceBtn" class="bigChoice" type="button">Science</button>
+        <button id="communityBtn" class="bigChoice" type="button">Community</button>
       </div>
 
-      <p class="hint" id="statusText">Select a topic to begin.</p>
+      <p class="hint" id="statusText">Choose a topic to begin.</p>
+
+      <div class="row" style="margin-top:12px;">
+        <button id="resetBtn" class="ghost" type="button" style="display:none;">Reset</button>
+      </div>
     </header>
 
     <main id="mainArea" class="main-area" hidden>
