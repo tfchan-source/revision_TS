@@ -1,0 +1,56 @@
+{
+  "community": [
+    {
+      "id": 1,
+      "question": "Name one facility for fun in a park.",
+      "answer": "The playground / swings."
+    },
+    {
+      "id": 2,
+      "question": "Where do people go to borrow books for free in a neighborhood?",
+      "answer": "The public library."
+    },
+    {
+      "id": 3,
+      "question": "Who can you call in the community if there is an emergency fire?",
+      "answer": "The fire department / firefighters."
+    },
+    {
+      "id": 4,
+      "question": "What community place can you visit to see historical artifacts or art?",
+      "answer": "A museum."
+    },
+    {
+      "id": 5,
+      "question": "Where can neighbors go to buy fresh fruits and vegetables?",
+      "answer": "The local supermarket or farmer's market."
+    }
+  ],
+  "science": [
+    {
+      "id": 1,
+      "question": "What gas do humans need to breathe in to survive?",
+      "answer": "Oxygen."
+    },
+    {
+      "id": 2,
+      "question": "Which planet is known as the Red Planet?",
+      "answer": "Mars."
+    },
+    {
+      "id": 3,
+      "question": "What is the boiling point of pure water in Celsius?",
+      "answer": "100 degrees Celsius."
+    },
+    {
+      "id": 4,
+      "question": "What force pulls objects down toward the center of the Earth?",
+      "answer": "Gravity."
+    },
+    {
+      "id": 5,
+      "question": "What do bees collect from flowers to make honey?",
+      "answer": "Nectar."
+    }
+  ]
+}
