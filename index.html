@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flashcard Revision</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <h1>Revision Flashcards</h1>
+
+      <div class="row">
+        <label class="label">
+          Topic:
+          <select id="topicSelect">
+            <option value="" selected disabled>Choose a topic</option>
+            <option value="science-community">Science / Community</option>
+            <option value="history">History</option>
+            <option value="geography">Geography</option>
+          </select>
+        </label>
+
+        <button id="startBtn">Start (5×5)</button>
+        <button id="resetBtn" class="ghost" type="button" style="display:none;">Reset</button>
+      </div>
+
+      <p class="hint" id="statusText">Select a topic to begin.</p>
+    </header>
+
+    <main id="mainArea" class="main-area" hidden>
+      <div class="grid" id="cardGrid" aria-label="Flashcard grid"></div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
