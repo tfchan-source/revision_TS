@@ -16,7 +16,6 @@ fetch('data.json')
 
 /**
  * Handle screen navigation and generate the card grid
- * @param {string} topic - The key chosen ('community' or 'science')
  */
 function selectTopic(topic) {
   if (!currentData) return;
@@ -35,22 +34,20 @@ function selectTopic(topic) {
 }
 
 /**
- * Render a 5x5 grid dynamically. 
- * If your JSON contains fewer than 25 items, it auto-repeats or fills to ensure a 5x5 environment.
+ * Render an exact 4x4 grid (16 items total)
  */
 function renderGrid(topic) {
   const gridContainer = document.getElementById('flashcards-grid');
-  gridContainer.innerHTML = ''; // Clear prior elements
+  gridContainer.innerHTML = ''; // Reset UI view
   
   const questionsList = currentData[topic] || [];
   
-  // Build exactly 25 items
-  for (let i = 1; i <= 25; i++) {
-    // If your JSON array has fewer than 25 questions, reuse them sequentially with modulo mapping
+  // Restricted loop explicitly looking for 16 indexes
+  for (let i = 1; i <= 16; i++) {
+    // If JSON array has fewer than 16 elements, fallback modulo math gracefully repeats them
     const contentIndex = (i - 1) % questionsList.length;
-    const itemData = questionsList[contentIndex] || { question: "Placeholder Question", answer: "Placeholder Answer" };
+    const itemData = questionsList[contentIndex] || { question: "Sample Question", answer: "Sample Answer" };
     
-    // Create card wrappers
     const cardItem = document.createElement('div');
     cardItem.className = 'card-item';
     cardItem.id = `card-${i}`;
@@ -67,7 +64,7 @@ function renderGrid(topic) {
       </div>
     `;
     
-    // Set step-by-step sequential action framework per card click
+    // Multi-phase mouse interaction capture setup
     cardItem.addEventListener('click', function() {
       handleCardClick(cardItem);
     });
@@ -77,13 +74,10 @@ function renderGrid(topic) {
 }
 
 /**
- * Sequence state tracking:
- * State 0: Unflipped -> Click flips card to reveal Question
- * State 1: Question Visible -> Click reveals Answer block underneath
- * State 2: Answer Visible -> Keeps layout set; student shifts to next item
+ * Sequential click tracking logic
  */
 function handleCardClick(cardElement) {
-  // If card is completely fresh/unflipped
+  // Phase 1: Unflipped to Flipped (Reveals Question)
   if (!cardElement.classList.contains('flipped')) {
     cardElement.classList.add('flipped');
     flippedCardsCount++;
@@ -91,7 +85,7 @@ function handleCardClick(cardElement) {
     return;
   }
   
-  // If card is already flipped to question, but answer isn't out yet
+  // Phase 2: Flipped to Show-Answer (Appends Answer panel underneath question)
   if (cardElement.classList.contains('flipped') && !cardElement.classList.contains('show-answer')) {
     cardElement.classList.add('show-answer');
     return;
@@ -99,7 +93,7 @@ function handleCardClick(cardElement) {
 }
 
 /**
- * Return to main hub landing screen
+ * Return back to main hub screen
  */
 function goBack() {
   document.getElementById('cards-screen').classList.remove('active');
