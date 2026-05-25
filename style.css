@@ -1,0 +1,173 @@
+:root{
+  --bg:#0b1220;
+  --panel:#101a33;
+  --card:#17254a;
+  --card2:#1b2b57;
+  --text:#eaf0ff;
+  --muted:#a9b6e6;
+  --accent:#6aa6ff;
+  --accent2:#7cf0c1;
+  --border:rgba(255,255,255,.12);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius:16px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(106,166,255,.25), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(124,240,193,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:18px;
+}
+
+.app{
+  width:min(1100px, 100%);
+}
+
+header{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:16px 16px 14px;
+  box-shadow: var(--shadow);
+}
+
+h1{
+  font-size:18px;
+  margin:0 0 10px;
+  letter-spacing:.2px;
+}
+
+.row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.label{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-size:14px;
+  color:var(--muted);
+}
+
+select, button{
+  border-radius: 12px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color:var(--text);
+  padding:10px 12px;
+  font-size:14px;
+  outline:none;
+}
+
+select:focus, button:focus{
+  border-color: rgba(106,166,255,.6);
+  box-shadow: 0 0 0 3px rgba(106,166,255,.15);
+}
+
+button{
+  cursor:pointer;
+  background: linear-gradient(180deg, rgba(106,166,255,.25), rgba(106,166,255,.08));
+}
+
+button.ghost{
+  background: rgba(255,255,255,.06);
+}
+
+.hint{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.main-area{
+  margin-top:14px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap:12px;
+  align-items:stretch;
+}
+
+@media (max-width: 640px){
+  .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.card{
+  border-radius: var(--radius);
+  border:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  padding:10px;
+  min-height:110px;
+  position:relative;
+  overflow:hidden;
+}
+
+.card button.cardBtn{
+  width:100%;
+  height:100%;
+  border:0;
+  background: transparent;
+  color:inherit;
+  padding:0;
+  margin:0;
+  cursor:pointer;
+  text-align:left;
+}
+
+.card-inner{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:46px;
+  height:32px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color:var(--muted);
+  font-weight:700;
+  font-size:13px;
+}
+
+.state-question .card-content{
+  color:var(--text);
+}
+
+.question{
+  font-size:13px;
+  color:var(--text);
+  line-height:1.35;
+}
+
+.answer{
+  margin-top:6px;
+  font-size:13px;
+  color:var(--accent2);
+  line-height:1.35;
+  padding-top:8px;
+  border-top:1px dashed rgba(124,240,193,.35);
+}
+
+/* simple “flip” feel (just visual transitions) */
+.card-content{
+  transition: transform .25s ease, opacity .25s ease;
+}
