@@ -1,8 +1,8 @@
-// --- Example data (replace with your real questions/answers) ---
-// You want 25 cards per topic (5x5).
+// --- Topics data (EDIT THIS: make sure each topic has at least 25 cards) ---
 // Each card: { question: "...", answer: "..." }
+
 const TOPICS = {
-  "science-community": [
+  science: [
     { question: "Name one facility for fun in a park.", answer: "Playground / swings / slides." },
     { question: "What is one benefit of community gardens?", answer: "They grow fresh food and bring people together." },
     { question: "Name one waste item you should recycle.", answer: "Paper / plastic bottle / cardboard." },
@@ -14,7 +14,6 @@ const TOPICS = {
     { question: "Name one way to save electricity at home.", answer: "Turn off lights when not in use." },
     { question: "Why should we wash our hands?", answer: "To remove germs and prevent illness." },
 
-    // --- Add up to 25 ---
     { question: "What is weather?", answer: "Conditions like rain, wind, and temperature at a place." },
     { question: "What is the difference between solid and liquid?", answer: "Solids keep their shape; liquids flow." },
     { question: "Name one example of a force.", answer: "Push or pull." },
@@ -32,26 +31,43 @@ const TOPICS = {
     { question: "How can you stay active?", answer: "Walk, run, or play sports daily." }
   ],
 
-  "history": [
-    // Fill 25 entries here as well
-    ...Array.from({ length: 25 }, (_, i) => ({
-      question: `History Q${i + 1}: Example question?`,
-      answer: `History A${i + 1}: Example answer.`
-    }))
-  ],
+  community: [
+    // Replace these with your real community questions/answers.
+    { question: "What is a community?", answer: "A group of people living in the same area and sharing connections." },
+    { question: "Name one community helper.", answer: "A teacher / doctor / firefighter / police officer." },
+    { question: "Why do we follow community rules?", answer: "To keep everyone safe and help the community work well." },
+    { question: "Name one way to be respectful to others.", answer: "Listen when someone is speaking and use polite words." },
+    { question: "What is teamwork?", answer: "Working together to reach a shared goal." },
 
-  "geography": [
-    // Fill 25 entries here as well
-    ...Array.from({ length: 25 }, (_, i) => ({
-      question: `Geography Q${i + 1}: Example question?`,
-      answer: `Geography A${i + 1}: Example answer.`
-    }))
+    { question: "How can we care for our environment?", answer: "Reduce litter, recycle, and keep public spaces clean." },
+    { question: "Name one volunteer activity.", answer: "Helping at a food bank / cleaning a park / tutoring." },
+    { question: "What is a public place?", answer: "A place for everyone (like a park or library)." },
+    { question: "Why is public transport useful?", answer: "It helps people travel and can reduce traffic." },
+    { question: "What does 'community' mean in daily life?", answer: "The people and places around you that support shared living." },
+
+    { question: "Name one example of community support.", answer: "Neighbors helping each other during tough times." },
+    { question: "Why should we include everyone?", answer: "So all people feel valued and can participate." },
+    { question: "What is communication?", answer: "Sharing information so people understand each other." },
+    { question: "Name one way to resolve a conflict.", answer: "Talk calmly and listen to both sides." },
+    { question: "What is kindness?", answer: "Showing care, respect, and helpful actions." },
+
+    { question: "How can we stay safe in the community?", answer: "Follow safety rules and pay attention to your surroundings." },
+    { question: "Name one thing a school community does together.", answer: "Events like assemblies, sports days, or charity drives." },
+    { question: "What is a neighborhood?", answer: "A smaller community where people live close together." },
+    { question: "What is citizenship?", answer: "Being responsible and helping your community." },
+    { question: "Name one way to save resources at home.", answer: "Turn off lights and save water." },
+
+    { question: "Why is learning important in a community?", answer: "It helps people improve and contribute." },
+    { question: "Name one benefit of working together.", answer: "You can finish tasks faster and learn from others." },
+    { question: "What does 'belonging' mean?", answer: "Feeling accepted and part of a group." },
+    { question: "Name one place people meet to connect.", answer: "A park, library, or community center." },
+    { question: "How can we make our community better?", answer: "Volunteer, follow rules, and treat others with respect." }
   ]
 };
 
 // --- DOM ---
-const topicSelect = document.getElementById("topicSelect");
-const startBtn = document.getElementById("startBtn");
+const scienceBtn = document.getElementById("scienceBtn");
+const communityBtn = document.getElementById("communityBtn");
 const resetBtn = document.getElementById("resetBtn");
 const statusText = document.getElementById("statusText");
 const mainArea = document.getElementById("mainArea");
@@ -60,7 +76,7 @@ const cardGrid = document.getElementById("cardGrid");
 // --- Config ---
 const TOTAL_CARDS = 25; // 5x5
 
-// --- State per card: 0 => number only, 1 => show question, 2 => show answer ---
+// State per card: 0 => number only, 1 => show question, 2 => show answer
 function createCardElement(cardIndex, cardData) {
   const card = document.createElement("div");
   card.className = "card";
@@ -88,8 +104,7 @@ function createCardElement(cardIndex, cardData) {
   answerEl.className = "answer";
   answerEl.textContent = cardData.answer;
 
-  // initial state
-  // number only => hide question/answer
+  // initial state: number only
   questionEl.style.display = "none";
   answerEl.style.display = "none";
 
@@ -101,8 +116,8 @@ function createCardElement(cardIndex, cardData) {
   btn.appendChild(inner);
   card.appendChild(btn);
 
-  // Click logic: number -> question -> answer (and stays)
   let state = 0;
+
   btn.addEventListener("click", () => {
     state = Math.min(2, state + 1);
 
@@ -127,10 +142,7 @@ function shuffle(arr) {
   return a;
 }
 
-function start() {
-  const topicKey = topicSelect.value;
-  if (!topicKey) return;
-
+function startForTopic(topicKey) {
   const cards = TOPICS[topicKey];
 
   if (!cards || cards.length < TOTAL_CARDS) {
@@ -138,10 +150,9 @@ function start() {
     return;
   }
 
-  // pick exactly 25, then shuffle so the layout is mixed
+  // pick 25 and shuffle for random card distribution
   const selected = shuffle(cards).slice(0, TOTAL_CARDS);
 
-  // Clear and render
   cardGrid.innerHTML = "";
   selected.forEach((cardData, i) => {
     cardGrid.appendChild(createCardElement(i, cardData));
@@ -151,6 +162,7 @@ function start() {
   resetBtn.style.display = "inline-block";
   statusText.textContent = "Tap any card: number → question → answer.";
 }
+
 
 function resetView() {
   cardGrid.innerHTML = "";
